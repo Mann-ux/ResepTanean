@@ -1,9 +1,13 @@
+// Fungsi slideshow (diambil dari slideshow.js Anda)
 function initSlideshow() {
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
     const totalSlides = slides.length;
     let slideshowInterval;
+
+    // Pastikan ada slides untuk diolah
+    if (totalSlides === 0) return;
 
     function showSlide(index) {
         // Validasi index
@@ -18,7 +22,6 @@ function initSlideshow() {
         // Update active dot
         dots.forEach((dot, i) => {
             dot.classList.toggle('bg-white', i === currentSlide);
-            dot.classList.toggle('bg-opacity-100', i === currentSlide);
             dot.classList.toggle('w-3', i === currentSlide);
         });
     }
@@ -34,6 +37,7 @@ function initSlideshow() {
     }
 
     // Inisialisasi
+    showSlide(0); // Tampilkan slide pertama
     startAutoSlide();
 
     // Dot navigation
@@ -45,9 +49,4 @@ function initSlideshow() {
             startAutoSlide();
         });
     });
-
-    // Pause saat hover (opsional)
-    const slideshowContainer = document.getElementById('slideshow-container');
-    slideshowContainer?.addEventListener('mouseenter', stopAutoSlide);
-    slideshowContainer?.addEventListener('mouseleave', startAutoSlide);
 }

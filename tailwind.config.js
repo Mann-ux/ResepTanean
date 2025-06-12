@@ -1,7 +1,8 @@
 module.exports = {
   content: [
-    "./index.html",
-    "./js/**/*.js"
+    "./*.html",
+    "./**/*.html",
+    "./js/**/*.js",
   ],
   theme: {
     extend: {
@@ -10,9 +11,11 @@ module.exports = {
       },
       colors: {
         primary: '#992F14',
-        secondary: '#4CAF50',
+        secondary: '#748189',
         accent: '#FF5722',
+        redd: '#330A0A',
         background: '#FFFBF4',
+        bgtab: '#FFF6EA',
         'difficulty-easy': '#4CAF50',
         'difficulty-medium': '#FFC107',
         'difficulty-hard': '#F44336',

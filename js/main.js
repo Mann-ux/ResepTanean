@@ -1,217 +1,206 @@
-// Data slideshow dengan foto
 const slides = [
-    {
-        title: "",
-        image: "images/slide1.jpg"
+    { 
+        image: "images/slide1.jpg", 
+        detailPage: "detail/sate-madura.html" 
     },
-    {
-        title: "",
-        image: "images/slide2.png"
+    { 
+        image: "images/slide2.jpg", 
+        detailPage: "detail/ayam-hitam.html"
     },
-    {
-        title: "",
-        image: "images/slide3.jpg"
+    { 
+        image: "images/slide3.jpg",
+        detailPage: "detail/wedang-pokak.html"
     }
 ];
 
-// Data resep
-const recipes = [
-    {
-        id: 1,
-        name: "Ayam Hitam",
-        difficulty: "Sedang",
-        difficultyClass: "text-difficulty-medium",
-        image: "images/ayam-hitam.jpg"
-    },
-    {
-        id: 2,
-        name: "Wedang Pokak",
-        difficulty: "Sedang",
-        difficultyClass: "text-difficulty-medium",
-        image: "images/wedang-pokak.jpg"
-    },
-    {
-        id: 3,
-        name: "Burjo Madura",
-        difficulty: "Mudah",
-        difficultyClass: "text-difficulty-easy",
-        image: "images/burjo-madura.jpg"
-    },
-    {
-        id: 4,
-        name: "Bebek Hitam",
-        difficulty: "Sedang",
-        difficultyClass: "text-difficulty-medium",
-        image: "images/bebek-hitam.jpg"
-    },
-    {
-        id: 5,
-        name: "Sate Madura",
-        difficulty: "Sulit",
-        difficultyClass: "text-difficulty-hard",
-        image: "images/sate-madura.jpg"
-    },
-    {
-        id: 6,
-        name: "Soto Madura",
-        difficulty: "Sedang",
-        difficultyClass: "text-difficulty-medium",
-        image: "images/soto-madura.jpg"
-    }
-];
-
-// Inisialisasi halaman
 document.addEventListener('DOMContentLoaded', () => {
-    // Render slideshow dengan foto
-    const slideshowContainer = document.getElementById('slideshow');
+    if (document.getElementById('slideshow')) {
+        renderSlideshow();
+    }
+    if (document.getElementById('recipe-grid')) {
+        renderRecipes();
+    }
+    if (document.getElementById('search-input')) {
+        initSearch();
+    }
+    initNavigation();
+});
+
+function initNavigation() {
+    const currentPage = window.location.pathname.split('/').pop();
+    const homeBtn = document.querySelector('.nav-btn a[href="index.html"]')?.parentElement;
+    const favoritesBtn = document.querySelector('.nav-btn a[href="favorit.html"]')?.parentElement;
+
+    if (currentPage === 'index.html' || currentPage === '') {
+        homeBtn?.classList.add('active');
+        favoritesBtn?.classList.remove('active');
+    } else if (currentPage === 'favorit.html') {
+        favoritesBtn?.classList.add('active');
+        homeBtn?.classList.remove('active');
+    }
+}
+
+function renderSlideshow() {
+    // Mengambil elemen HTML untuk slideshow dan titik navigasi
+    const slideshow = document.getElementById('slideshow');
     const dotsContainer = document.getElementById('slideshow-dots');
     
+    // Jika salah satu elemen tidak ditemukan, hentikan fungsi
+    if (!slideshow || !dotsContainer) return;
+    
+    // Kosongkan konten slideshow dan dots sebelum diisi ulang
+    slideshow.innerHTML = '';
+    dotsContainer.innerHTML = '';
+    
+    // Looping untuk setiap item di dalam data 'slides'
     slides.forEach((slide, index) => {
-        // Tambahkan slide dengan gambar
-        const slideElement = document.createElement('div');
-        slideElement.className = `slide w-full flex-shrink-0`;
-        slideElement.innerHTML = `
-            <div class="h-full w-full bg-cover bg-center" style="background-image: url('${slide.image}')">
-                <div class="h-full flex items-center justify-center">
-                    <h3 class="text-white text-xl font-bold px-2 text-center">${slide.title}</h3>
-                </div>
-            </div>
-        `;
-        slideshowContainer.appendChild(slideElement);
+        // =======================================================
+        // BAGIAN INI YANG DIPERBARUI
+        // =======================================================
+
+        // 1. Membuat elemen <a> (link) sebagai pembungkus utama slide.
+        //    Sebelumnya, ini adalah elemen <div>.
+        const linkWrapper = document.createElement('a');
+
+        // 2. Mengatur tujuan link (URL) dari data 'slide.detailPage'.
+        linkWrapper.href = slide.detailPage;
+
+        // 3. Memberi kelas yang diperlukan agar tampilannya benar.
+        //    Kelas ini sama seperti yang dimiliki <div> sebelumnya.
+        linkWrapper.className = 'slide w-full flex-shrink-0 h-full swipe-area block';
+
+        // 4. Mengisi bagian dalam link dengan div yang berisi gambar background.
+        linkWrapper.innerHTML = `<div class="slide-image" style="background-image: url('${slide.image}')"></div>`;
         
-        // Tambahkan dot navigasi
+        // 5. Menambahkan link yang sudah lengkap ini ke dalam container slideshow.
+        slideshow.appendChild(linkWrapper);
+
+        // =======================================================
+        // Bagian untuk membuat titik navigasi (tidak ada perubahan)
+        // =======================================================
         const dot = document.createElement('button');
         dot.className = 'w-2 h-2 rounded-full bg-white/50 dot';
         dot.dataset.index = index;
         dotsContainer.appendChild(dot);
     });
     
-    // Render resep
+    // Memanggil fungsi untuk mengaktifkan logika slideshow (geser, auto-play, dll)
+    initSlideshowLogic();
+}
+
+function initSlideshowLogic() {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const totalSlides = slides.length;
+    let slideshowInterval;
+
+    if (totalSlides === 0) return;
+
+    function showSlide(index) {
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+        
+        currentSlide = index;
+        
+        document.getElementById('slideshow').style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('bg-white', i === currentSlide);
+            dot.classList.toggle('w-3', i === currentSlide);
+        });
+    }
+
+    function startAutoSlide() {
+        slideshowInterval = setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 3000);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(slideshowInterval);
+    }
+
+    const slideshowContainer = document.getElementById('slideshow');
+    let touchStartX = 0;
+    
+    slideshowContainer.addEventListener('touchstart', e => {
+        touchStartX = e.touches[0].clientX;
+        stopAutoSlide();
+    }, { passive: true });
+    
+    slideshowContainer.addEventListener('touchend', e => {
+        if (!touchStartX) return;
+        
+        const touchEndX = e.changedTouches[0].clientX;
+        const diffX = touchStartX - touchEndX;
+        const minSwipe = 50;
+        
+        if (diffX > minSwipe) {
+            showSlide(currentSlide + 1);
+        } else if (diffX < -minSwipe) {
+            showSlide(currentSlide - 1);
+        }
+        
+        touchStartX = 0;
+        startAutoSlide();
+    }, { passive: true });
+
+    showSlide(0);
+    startAutoSlide();
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            stopAutoSlide();
+            showSlide(parseInt(dot.dataset.index));
+            startAutoSlide();
+        });
+    });
+}
+
+function renderRecipes() {
     const recipeGrid = document.getElementById('recipe-grid');
-    recipes.forEach(recipe => {
+    if (!recipeGrid || typeof allRecipes === 'undefined') return;
+    
+    recipeGrid.innerHTML = '';
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    
+    allRecipes.forEach(recipe => {
+        const isFavorite = favorites.includes(recipe.name);
+        
         const recipeCard = document.createElement('a');
-        recipeCard.href = "#";
+        recipeCard.href = recipe.detailPage;
         recipeCard.className = 'recipe-card bg-white rounded-xl shadow-md overflow-hidden block';
+        
         recipeCard.innerHTML = `
-          <div class="clickable-area">
             <div class="h-32 bg-cover bg-center" style="background-image: url('${recipe.image}')"></div>
             <div class="p-3">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h4 class="font-medium text-sm">${recipe.name}</h4>
-                  <p class="text-xs ${recipe.difficultyClass}">${recipe.difficulty}</p>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h4 class="font-medium text-sm">${recipe.name}</h4>
+                        <p class="text-xs ${recipe.difficultyClass}">${recipe.difficulty}</p>
+                    </div>
+                    <button class="favorite-btn ${isFavorite ? 'active' : ''}" data-resep="${recipe.name}">
+                        <i class="fas fa-bookmark ${isFavorite ? 'text-primary' : 'text-gray-400'}"></i>
+                    </button>
                 </div>
-                <button class="favorite-btn" data-resep="${recipe.name}">
-                  <i class="fas fa-bookmark text-gray-400"></i>
-                </button>
-              </div>
             </div>
-          </div>
         `;
         recipeGrid.appendChild(recipeCard);
     });
-    
-    // Inisialisasi modul
-    initSlideshow();
-    initFavorites();
-    initSearch();
+}
 
-    // Event listener untuk membuka detail resep
-    recipeGrid.addEventListener('click', (e) => {
-        const clickableArea = e.target.closest('.clickable-area');
-        const isFavoriteBtn = e.target.closest('.favorite-btn');
+function initSearch() {
+    const searchInput = document.getElementById('search-input');
+    if (!searchInput) return;
+    
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.trim().toLowerCase();
+        const recipeCards = document.querySelectorAll('#recipe-grid .recipe-card');
         
-        if (clickableArea && !isFavoriteBtn) {
-            e.preventDefault();
-            const recipeName = clickableArea.querySelector('h4').textContent;
-            openDetailResep(recipeName);
-        }
-    });
-
-    // Fungsi untuk membuka detail resep
-    function openDetailResep(recipeName) {
-        const recipe = recipes.find(r => r.name === recipeName);
-        if (!recipe) return;
-
-        // Update UI
-        document.getElementById('detail-resep').classList.remove('hidden');
-        document.querySelector('#detail-resep h2').textContent = recipe.name;
-        
-        // Isi konten bahan dan langkah
-        document.getElementById('bahan-content').innerHTML = `
-            <div class="mb-4">
-                <h3 class="font-semibold mb-2">Bahan bahan:</h3>
-                <p>300 gr Fillet Ayam, potong dadu</p>
-            </div>
-            
-            <div class="mb-4">
-                <h3 class="font-semibold mb-2">Bumbu Marinasi:</h3>
-                <p>• 2 sdt Ketumbar tubuh</p>
-                <p>• 3 siung bawang putih</p>
-                <p>• Secukupnya Kecap Manis</p>
-                <p>• Secukupnya Garam</p>
-            </div>
-            
-            <div class="mb-4">
-                <h3 class="font-semibold mb-2">Bumbu Kacang:</h3>
-                <p>• 250 gr Kacang Tanah, sangrai dan blender</p>
-                <p>• 1.5 buah Gula Merah</p>
-                <p>• 2 butir Kemiri</p>
-                <p>• 5 buah Bawang Merah</p>
-                <p>• 2 siung Bawang Putih</p>
-                <p>• 2 sdm Kecap Manis</p>
-                <p>• 1 sdt Garam</p>
-                <p>• 1/2 sdt bumbu penyedap</p>
-                <p>• Secukupnya Minyak Goreng untuk menumis</p>
-                <p>• Secukupnya Air</p>
-            </div>
-        `;
-
-        document.getElementById('langkah-content').innerHTML = `
-            <div class="space-y-3">
-                <p>1. Siapkan semua bahan dan Bumbu. Potong dadu fillet ayam. Ulek/ blender Bumbu Marinasi. Rendam potongan ayam ke dalam Bumbu Marinasi. Jangan lupa tambahkan kecap. Biarkan, minimal 30 menit.</p>
-                <p>2. Lanjut, siapkan Bumbu kacang. Blender Bumbu, lanjut tumis dan masukkan bahan lain. Gula merah, kacang dan beri air. Aduk rata.</p>
-                <p>3. Tambahkan kecap, garam dan penyedap. Masak hingga meletup-letup tanda matang. Matikan api.</p>
-                <p>4. Tusuk-tusuk ayam yang sudah marinasi dengan tusukan sate. Siapkan sedikit Bumbu kacang dan tambahkan kecap. Oles sate dengan Bumbu sebelum dipanggang.</p>
-                <p>5. Panggang sate hingga berubah warna di wajan teflon. Sajikan bersama dengan bumbu kacang dan sambal juga acar. Sajikan dengan lontong atau nasi hangat.</p>
-            </div>
-        `;
-    }
-
-    // Tutup detail
-    document.getElementById('close-detail').addEventListener('click', () => {
-        document.getElementById('detail-resep').classList.add('hidden');
-    });
-    
-    // Inisialisasi tab
-    initTabs();
-});
-
-// Fungsi untuk inisialisasi tab
-function initTabs() {
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Hapus kelas active dari semua tombol
-            tabButtons.forEach(btn => {
-                btn.classList.remove('active', 'border-primary', 'text-primary');
-                btn.classList.add('text-gray-400');
-            });
-            
-            // Tambahkan kelas active ke tombol yang diklik
-            button.classList.add('active', 'border-primary', 'text-primary');
-            button.classList.remove('text-gray-400');
-            
-            // Sembunyikan semua konten tab
-            const tabContents = document.querySelectorAll('.tab-content');
-            tabContents.forEach(content => {
-                content.classList.add('hidden');
-            });
-            
-            // Tampilkan konten tab yang sesuai
-            const tabId = button.getAttribute('data-tab');
-            document.getElementById(`${tabId}-content`).classList.remove('hidden');
+        recipeCards.forEach(card => {
+            const recipeName = card.querySelector('h4').textContent.toLowerCase();
+            card.style.display = recipeName.includes(searchTerm) ? 'block' : 'none';
         });
     });
 }

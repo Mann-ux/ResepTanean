@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ayam Bumbu Hitam | ResepTanean</title>
+    <link rel="stylesheet" href="../src/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-background font-sans max-w-md mx-auto">
+    <header class="detail-header">
+      <a href="../index.html" class="header-icon">
+        <i class="fa-solid fa-x text-white"></i>
+      </a>
+      <button id="favorite-btn" class="header-icon">
+        <i class="far fa-bookmark text-white"></i>
+      </button>
+    </header>
+
+    <div
+      class="recipe-image"
+      style="background-image: url('../images/ayam-hitam.jpg')"
+    ></div>
+
+    <div class="p-4">
+      <div class="flex justify-between items-center mb-2">
+        <h1 class="recipe-title">Ayam Bumbu Hitam</h1>
+        <div class="flex items-center gap-2">
+          <div class="text-gray-600 text-sm">
+            <i class="fas fa-clock mr-1"></i> 2 Jam
+          </div>
+          <span class="difficulty-badge-medium">sedang</span>
+        </div>
+      </div>
+      <p class="text-gray-700 text-sm">
+        Ayam bumbu hitam adalah masakan khas Madura yang kaya akan rempah, menghasilkan rasa gurih, pedas, dan sedikit manis dengan warna hitam pekat yang khas.
+      </p>
+    </div>
+
+    <main class="p-4 pb-20">
+      <div class="flex justify-center mb-6">
+        <div class="tab-container" id="tabContainer">
+          <div class="tab-slider"></div>
+          <button class="tab-button active" data-tab="bahan">Bahan</button>
+          <button class="tab-button" data-tab="langkah">Langkah-langkah</button>
+        </div>
+      </div>
+
+      <div id="bahan-content" class="tab-content-section active">
+        <h1 class="font-bold text-xl">Bahan-bahan:</h1>
+        <h1 class="font-bold text-lg pl-1 pt-2">- Bahan Marinasi:</h1>
+        <ul class="list-disc pl-8 mt-2 text-base">
+          <li>1 kg ayam potong jadi 8 bagian</li>
+          <li>1 buah jeruk lemon potong 2</li>
+        </ul>
+        <h1 class="font-bold text-lg pl-1 pt-2">- Bumbu Halus:</h1>
+        <ul class="list-disc pl-8 mt-2 text-base">
+          <li>10 butir bawang merah</li>
+          <li>5 siung bawang putih</li>
+          <li>10 buah cabe merah besar</li>
+          <li>20 buah cabe rawit (atau beri sesuai selera)</li>
+          <li>2 cm kunyit</li>
+        </ul>
+      </div>
+      <div id="langkah-content" class="tab-content-section">
+        <h1 class="font-bold text-xl">Langkah-langkah:</h1>
+        <ol class="list-decimal pl-6 mt-2 text-base space-y-2">
+          <li>Cuci bersih ayam dan lumuri dengan air jeruk lemon, diamkan kurleb 30menit, cuci bersih kembali dan sisihkan.</li>
+          <li>Haluskan bumbu halus, setelah di haluskan, panaskan 50ml minyak goreng dan tumis bumbu halus dan daun jeruk hingga harum, masukan ayam aduk rata hingga berubah warna.</li>
+          <li>Tuangkan air dan larutan air asam Jawa hingga ayam terendam, beri garam, kaldu bubuk, gula pasir dan lada bubuk. Masak dengan api kecil hingga ayamnya matang serta airnya menyusut dan berminyak sambil sesekali di aduk.</li>
+          <li>Masak hingga semua empuk, bumbu meresap dan kental berminyak, koreksi rasa lalu matikan api.</li>
+          <li>Pisahkan ayam dan bumbunya. Sisihkan dulu bumbunya, panaskan minyak Lalu goreng ayam hingga kecoklatan angkat dan tiriskan sisihkan dulu.</li>
+          <li>Campurkan sisa bumbu ungkep dengan 100ml minyak goreng bekas menggoreng ayam. Masak dengan api kecil sambil terus diaduk-aduk sampai berubah menghitam kurleb 30 menit. Koreksi rasa lalu matikan api sambil terus diaduk-aduk hingga agak hangat agar sambal matang merata.</li>
+          <li>Sajikan ayam bersama bumbu hitamnya. NOTE: Kalau sudah dingin, sambal yang tadinya agak cokelat kemerahan akan berubah kehitaman dengan sendirinya.</li>
+        </ol>
+      </div>
+    </main>
+
+    <script src="../js/tab.js"></script>
+    <script src="../js/favorites.js"></script>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Burjo Madura | ResepTanean</title>
+    <link rel="stylesheet" href="../src/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-background font-sans max-w-md mx-auto">
+    <header class="detail-header">
+      <a href="../index.html" class="header-icon">
+        <i class="fa-solid fa-x text-white"></i>
+      </a>
+      <button id="favorite-btn" class="header-icon">
+        <i class="far fa-bookmark text-white"></i>
+      </button>
+    </header>
+
+    <div
+      class="recipe-image"
+      style="background-image: url('../images/burjo-madura.jpg')"
+    ></div>
+
+    <div class="p-4">
+      <div class="flex justify-between items-center mb-2">
+        <h1 class="recipe-title">Burjo Madura</h1>
+        <div class="flex items-center gap-2">
+          <div class="text-gray-600 text-sm">
+            <i class="fas fa-clock mr-1"></i> 8 Jam
+          </div>
+          <span class="difficulty-badge-medium">Sedang</span>
+        </div>
+      </div>
+      <p class="text-gray-700 text-sm">
+        Bubur kacang hijau khas Madura memiliki tekstur kental dan rasa manis legit, sering disajikan hangat dengan santan.
+      </p>
+    </div>
+
+    <main class="p-4 pb-20">
+      <div class="flex justify-center mb-6">
+        <div class="tab-container" id="tabContainer">
+          <div class="tab-slider"></div>
+          <button class="tab-button active" data-tab="bahan">Bahan</button>
+          <button class="tab-button" data-tab="langkah">Langkah-langkah</button>
+        </div>
+      </div>
+
+      <div id="bahan-content" class="tab-content-section active">
+        <h1 class="font-bold text-xl">Bahan-bahan:</h1>
+        <ul class="list-disc pl-8 mt-2 text-base">
+          <li>250 gram kacang ijo</li>
+          <li>1 liter air</li>
+          <li>2 Bungkus kara 65ml +400 ml air</li>
+          <li>180 gram gula putih</li>
+          <li>1 lembar daun pandan</li>
+          <li>1/2 sdt garam</li>
+          <li>1 ruas jahe memarkan</li>
+          <li>Secukupnya vanili</li>
+          <li>Susu Kental manis(opsional)</li>
+        </ul>
+      </div>
+      <div id="langkah-content" class="tab-content-section">
+        <h1 class="font-bold text-xl">Langkah-langkah:</h1>
+        <ol class="list-decimal pl-6 mt-2 text-base space-y-2">
+          <li>Kacang ijo direndam semalaman lalu tiriskan. Siapkan bahan lainnya.</li>
+          <li>Didihkan air, beri jahe dan pandan kemudian rebus kacang ijo selama 30 menit dengan api kecil dalam keadaan panci tertutup rapat.</li>
+          <li>Di panci terpisah, didihkan santan beri garam, gula, dan daun pandan dengan api kecil sambil diaduk agar santan tidak pecah.</li>
+          <li>Setelah kacang ijo matang, matikan api kompor dan masukkan kacang ijo pada kuah santan, aduk sebentar lalu matikan api.</li>
+          <li>Sajikan selagi hangat, atau dingin dengan diberi es batu. Bubur Kacang Ijo siap disantap!</li>
+        </ol>
+      </div>
+    </main>
+
+    <script src="../js/tab.js"></script>
+    <script src="../js/favorites.js"></script>
+  </body>
+</html>

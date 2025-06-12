@@ -2,89 +2,157 @@
 @tailwind components;
 @tailwind utilities;
 
+/* === GLOBAL STYLES === */
 body {
     -webkit-tap-highlight-color: transparent;
     font-family: 'Poppins', sans-serif;
 }
 
+/* === NAVIGATION BAR === */
+.navbar {
+    @apply bg-primary border-t border-gray-200 fixed bottom-0 w-full max-w-md py-3 px-6 flex justify-around;
+}
+
+.nav-btn {
+    @apply flex flex-col items-center text-gray-300;
+}
+
+.nav-btn.active {
+    @apply text-background;
+}
+
+/* === SLIDESHOW FIX === */
+.slideshow-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%; /* WAJIB: Ambil 100% lebar dari pembungkusnya */
+  
+  /* Jarak vertikal saja, TANPA jarak horizontal */
+  margin-top: 1rem;    /* my-4 */
+  margin-bottom: 1rem; /* my-4 */
+  
+  /* Tampilan & Bentuk */
+  border-radius: 0.75rem; /* rounded-xl */
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* shadow-md */
+  aspect-ratio: 16 / 9; /* Bentuk persegi panjang 16:9 */
+  max-height: 250px;    /* Batas tinggi di HP */
+}
+
 .slide {
+    @apply w-full flex-shrink-0 h-full;
     transition: transform 0.5s ease-in-out;
 }
 
+.slide-image {
+    @apply w-full h-full bg-cover bg-center bg-no-repeat; /* Ubah dari bg-cover menjadi bg-contain */
+}
+
+/* === RECIPE CARD === */
 .recipe-card {
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    @apply transition-all duration-200 ease-in-out hover:translate-y-[-5px] hover:shadow-lg;
 }
 
-.recipe-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+/* === FAVORITE SYSTEM === */
+.favorite-btn {
+    @apply transition-colors;
 }
 
-#search-input:focus {
-    outline: none;
-    border-color: #992F14;
+.favorite-btn.active > i {
+    @apply text-primary;
 }
 
-/* Untuk gambar di slideshow dan card */
-.bg-cover {
-    background-size: cover;
+.favorite-pulse {
+    animation: pulse 0.5s ease;
 }
 
-.bg-center {
-    background-position: center;
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
 }
 
-/* Tab System */
-.tab-btn {
-  transition: all 0.3s ease;
+/* === DETAIL PAGE === */
+.detail-header {
+    @apply fixed top-0 left-0 right-0 z-20 p-4 max-w-md mx-auto flex justify-between;
 }
 
-.tab-btn.active {
-  color: #992F14; /* Warna primary */
-  border-color: #992F14;
+.header-icon {
+    @apply w-10 h-10 rounded-full bg-primary/80 backdrop-blur-sm flex items-center justify-center shadow-sm transition-all;
 }
 
-/* Animasi konten tab */
-.tab-content {
-  animation: fadeIn 0.5s ease;
+.recipe-image {
+    @apply w-full h-64 bg-cover bg-center;
+}
+
+.recipe-title {
+    @apply text-xl font-bold text-gray-800;
+}
+
+.difficulty-badge {
+    @apply bg-red-100 text-red-600 px-3 py-1 rounded-full text-xs font-medium;
+}
+
+.difficulty-badge-easy {
+    @apply bg-green-100 text-green-600 px-3 py-1 rounded-full text-xs font-medium;
+}
+
+.difficulty-badge-medium {
+    @apply bg-yellow-100 text-yellow-600 px-3 py-1 rounded-full text-xs font-medium;
+}
+
+/* === TAB SYSTEM === */
+.tab-container {
+    @apply relative inline-flex bg-bgtab rounded-full p-[2px];
+}
+
+.tab-slider {
+    @apply absolute bg-primary rounded-full shadow-sm transition-all duration-300;
+    height: calc(100% - 4px);
+    top: 2px;
+    left: 2px;
+}
+
+.tab-button {
+    @apply relative z-10 px-5 py-2 font-medium rounded-full transition-colors text-redd whitespace-nowrap;
+}
+
+.tab-button.active {
+    @apply text-white;
+}
+
+/* === CONTENT SECTION === */
+.tab-content-section {
+    @apply hidden;
+}
+
+.tab-content-section.active {
+    @apply block;
+    animation: fadeIn 0.3s ease;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Berikan feedback visual saat card diklik */
-.clickable-area {
-  transition: transform 0.2s, box-shadow 0.2s;
-  cursor: pointer;
+/* === UTILITIES === */
+.empty-state {
+    @apply h-[70vh] flex flex-col items-center justify-center text-center;
 }
 
-.clickable-area:active {
-  transform: scale(0.98);
+/* === RESPONSIVE FIXES === */
+@media (max-width: 640px) {
+    .slideshow-container {
+        height: 40vh;
+    }
 }
 
-/* Pastikan tombol favorit tetap bisa diklik */
-.favorite-btn {
-  pointer-events: auto !important; 
-  z-index: 10;
+/* === SWIPE GESTURE === */
+#slideshow {
+    transition: transform 0.3s ease-out;
+    touch-action: pan-y;
 }
 
-/* Style tombol navigasi */
-.slide-prev, .slide-next {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  z-index: 20;
-}
-
-.slide-prev:hover, .slide-next:hover {
-  background-color: rgba(0, 0, 0, 0.5) !important;
-}
-
-.slide-prev:active, .slide-next:active {
-  transform: translateY(-50%) scale(0.9);
+.swipe-area {
+    touch-action: none;
 }
