@@ -1,4 +1,4 @@
-// js/favorites.js - VERSI LENGKAP DAN DIPERBAIKI
+// js/favorites.js - VERSI FINAL YANG SUDAH LENGKAP DAN DIPERBAIKI
 
 document.addEventListener('DOMContentLoaded', () => {
     // Memeriksa status favorit di semua halaman saat dimuat
@@ -74,7 +74,6 @@ function toggleFavoriteStatus(recipeName) {
 }
 
 function updateAllFavoriteIcons() {
-    // ... (Fungsi ini tetap sama, tidak perlu diubah, biarkan saja)
     const favorites = getFavorites();
     
     const detailButton = document.getElementById('favorite-btn');
@@ -112,7 +111,8 @@ function renderFavoritePage() {
     if (!container || typeof allRecipes === 'undefined') return;
 
     const favorites = getFavorites();
-    const favoriteRecipes = allRecipes.filter(recipe => favorites.includes(recipe.name));
+    // DIPERBAIKI: Menambahkan .trim() untuk mencegah bug spasi
+    const favoriteRecipes = allRecipes.filter(recipe => favorites.includes(recipe.name.trim()));
     
     container.innerHTML = '';
 
@@ -126,8 +126,8 @@ function renderFavoritePage() {
             <div class="p-3">
                 <div class="flex justify-between items-start">
                     <div>
-                        <h4 class="font-medium text-sm">${recipe.name}</h4>
-                        <p class="text-xs ${recipe.difficultyClass}">${recipe.difficulty}</p>
+                        <h4 class="font-medium text-sm mb-1">${recipe.name}</h4>
+                        <span class="${recipe.badgeClass}">${recipe.difficulty}</span>
                     </div>
                     <button class="favorite-btn active" data-resep="${recipe.name}">
                         <i class="fas fa-bookmark text-primary"></i>
@@ -139,4 +139,17 @@ function renderFavoritePage() {
     });
 
     checkEmptyState(); // Panggil pengecekan setelah selesai render
+}
+
+// DITAMBAHKAN: Fungsi yang hilang untuk menampilkan/menyembunyikan pesan kosong
+function checkEmptyState() {
+    const container = document.getElementById('favorite-container');
+    const emptyState = document.getElementById('empty-state');
+    if (container && emptyState) {
+        if (container.children.length === 0) {
+            emptyState.classList.remove('hidden');
+        } else {
+            emptyState.classList.add('hidden');
+        }
+    }
 }

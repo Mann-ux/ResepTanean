@@ -1,6 +1,6 @@
 // service-worker.js - VERSI FINAL UNTUK HOSTING
-const PRECACHE_NAME = 'resep-tanean-precache-v1.1.0'; // Versi final
-const DYNAMIC_CACHE_NAME = 'resep-tanean-dynamic-v1.1.0';
+const PRECACHE_NAME = 'resep-tanean-precache-v1.2.0'; // Versi final
+const DYNAMIC_CACHE_NAME = 'resep-tanean-dynamic-v1.2.0';
 
 const urlsToCache = [
   // == Core Files ==

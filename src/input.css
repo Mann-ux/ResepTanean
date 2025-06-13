@@ -10,11 +10,11 @@ body {
 
 /* === NAVIGATION BAR === */
 .navbar {
-    @apply bg-primary border-t border-gray-200 fixed bottom-0 w-full max-w-md py-3 px-6 flex justify-around;
+    @apply bg-primary border-t border-gray-400 fixed bottom-0 w-full max-w-md py-3 px-6 flex justify-around;
 }
 
 .nav-btn {
-    @apply flex flex-col items-center text-gray-200;
+    @apply flex flex-col items-center text-gray-400;
 }
 
 .nav-btn.active {
