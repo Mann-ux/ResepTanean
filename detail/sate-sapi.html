@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sate Sapi/Kambing | ResepTanean</title>
+    <link rel="stylesheet" href="../src/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-background font-sans max-w-md mx-auto">
+    <header class="detail-header">
+      <a href="../index.html" class="header-icon">
+        <i class="fa-solid fa-x text-white"></i>
+      </a>
+      <button id="favorite-btn" class="header-icon">
+        <i class="far fa-bookmark text-white"></i>
+      </button>
+    </header>
+
+    <div
+      class="recipe-image"
+      style="background-image: url('../images/sate-sapi.jpg')"
+    ></div>
+
+    <div class="p-4">
+      <div class="flex justify-between items-center mb-2">
+        <h1 class="recipe-title">Sate Sapi/Kambing</h1>
+        <div class="flex items-center gap-2">
+          <div class="text-gray-600 text-sm">
+            <i class="fas fa-clock mr-1"></i> 2 Jam
+          </div>
+          <span class="difficulty-badge">Sulit</span>
+        </div>
+      </div>
+      <p class="text-gray-700 text-sm">
+        Sate 
+        Sapi/Kambing dengan resep Madura
+      </p>
+    </div>
+
+    <main class="p-4 pb-20">
+      <div class="flex justify-center mb-6">
+        <div class="tab-container" id="tabContainer">
+          <div class="tab-slider"></div>
+          <button class="tab-button active" data-tab="bahan">Bahan</button>
+          <button class="tab-button" data-tab="langkah">Langkah-langkah</button>
+        </div>
+      </div>
+
+      <div id="bahan-content" class="tab-content-section active">
+        <h1 class="font-bold text-xl">Bahan-bahan:</h1>
+        
+        <h1 class="font-bold text-lg pl-1 pt-4">- Bahan Utama:</h1>
+        <ul class="list-disc pl-6 mt-2 text-base space-y-1">
+          <li>500 gram daging sapi atau kambing (potong dadu)</li>
+          <li>Tusuk sate secukupnya</li>
+        </ul>
+        
+        <h1 class="font-bold text-lg pl-1 pt-4">- Bumbu Marinasi:</h1>
+        <ul class="list-disc pl-6 mt-2 text-base space-y-1">
+          <li>3 siung bawang putih (haluskan)</li>
+          <li>1 sdt ketumbar bubuk</li>
+          <li>1 sdm kecap manis</li>
+          <li>1 sdt garam</li>
+          <li>1 sdm air jeruk nipis</li>
+        </ul>
+
+        <h1 class="font-bold text-lg pl-1 pt-4">- Bumbu Kacang:</h1>
+        <ul class="list-disc pl-6 mt-2 text-base space-y-1">
+            <li>150 gram kacang tanah goreng</li>
+            <li>3 siung bawang putih goreng</li>
+            <li>3 buah cabai merah keriting</li>
+            <li>1-2 buah cabai rawit (sesuai selera)</li>
+            <li>2 sdm gula merah serut</li>
+            <li>1/2 sdt garam</li>
+            <li>150 ml air matang</li>
+            <li>5-6 sdm kecap manis</li>
+        </ul>
+      </div>
+
+      <div id="langkah-content" class="tab-content-section">
+        <h1 class="font-bold text-xl">Langkah-langkah:</h1>
+        <ol class="list-decimal pl-6 mt-2 text-base space-y-3">
+          <li>
+            Campur daging dengan semua bahan bumbu marinasi. Aduk rata, lalu diamkan di dalam kulkas minimal selama 1 jam agar bumbu meresap.
+          </li>
+          <li>
+            Untuk bumbu kacang: Haluskan kacang tanah, bawang putih goreng, cabai, gula merah, dan garam. Anda bisa menggunakan blender atau ulekan.
+          </li>
+          <li>
+             Tuang air matang sedikit demi sedikit ke dalam bumbu yang sudah halus sambil diaduk hingga mencapai kekentalan yang diinginkan. Tambahkan kecap manis dan aduk rata.
+          </li>
+          <li>
+            Tusuk potongan daging yang sudah dimarinasi ke tusuk sate, sekitar 3-4 potong per tusuk.
+          </li>
+          <li>
+            Bakar sate di atas bara api atau teflon/grill pan. Bolak-balik sate sambil sesekali diolesi dengan campuran sisa bumbu marinasi dan sedikit bumbu kacang hingga matang dan sedikit gosong di beberapa bagian.
+          </li>
+          <li>
+            Sajikan sate panas dengan siraman sisa bumbu kacang, tambahan kecap manis, irisan bawang merah, dan potongan cabai rawit. Nikmati dengan lontong atau nasi hangat.
+          </li>
+        </ol>
+      </div>
+    </main>
+
+    <script src="../js/tab.js"></script>
+    <script src="../js/favorites.js"></script>
+  </body>
+</html>

@@ -14,7 +14,7 @@ body {
 }
 
 .nav-btn {
-    @apply flex flex-col items-center text-gray-300;
+    @apply flex flex-col items-center text-gray-200;
 }
 
 .nav-btn.active {
@@ -73,11 +73,21 @@ body {
 
 /* === DETAIL PAGE === */
 .detail-header {
-    @apply fixed top-0 left-0 right-0 z-20 p-4 max-w-md mx-auto flex justify-between;
+    @apply fixed top-0 left-0 right-0 z-20 
+           max-w-md mx-auto flex justify-between items-start
+           pt-8 pb-12 px-4; /* Padding diubah agar gradasi lebih pendek */
+    
+    /* Diubah menjadi gradasi putih transparan yang lebih pendek */
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.9) 0%,   /* Putih pekat di paling atas */
+        rgba(255, 255, 255, 0.8) 3%,  /* Sedikit memudar di 30% */
+        rgba(255, 255, 255, 0) 100%   /* Sepenuhnya transparan di bawah */
+    );
 }
 
 .header-icon {
-    @apply w-10 h-10 rounded-full bg-primary/80 backdrop-blur-sm flex items-center justify-center shadow-sm transition-all;
+    @apply w-10 h-10 rounded-full bg-primary backdrop-blur-sm flex items-center justify-center shadow-sm transition-all;
 }
 
 .recipe-image {
@@ -155,4 +165,35 @@ body {
 
 .swipe-area {
     touch-action: none;
+}
+
+/* src/input.css */
+
+/* === STYLE UNTUK FILTER KATEGORI === */
+.dropdown-menu {
+    @apply absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl py-2 z-20;
+    /* Animasi */
+    transform-origin: top right;
+    animation: scale-in 0.1s ease-out forwards;
+}
+
+.dropdown-item {
+    @apply block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100;
+}
+
+/* Style untuk item yang aktif */
+.dropdown-item.active {
+    @apply bg-primary/10 text-primary font-semibold;
+}
+
+/* Keyframe untuk animasi muncul */
+@keyframes scale-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }

@@ -1,11 +1,16 @@
-// js/favorites.js
+// js/favorites.js - VERSI LENGKAP DAN DIPERBAIKI
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Memeriksa status favorit di semua halaman saat dimuat
     updateAllFavoriteIcons();
+
+    // Jika kita berada di halaman favorit.html, jalankan fungsi untuk merender isinya
     if (window.location.pathname.includes('favorit.html')) {
         renderFavoritePage();
     }
 });
 
+// Event listener terpusat untuk semua tombol favorit di seluruh aplikasi
 document.addEventListener('click', (e) => {
     const favoriteButton = e.target.closest('.favorite-btn, #favorite-btn');
     if (!favoriteButton) return;
@@ -13,6 +18,7 @@ document.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
 
+    // Dapatkan nama resep dari tombol yang diklik
     let recipeName;
     const isDetailPage = document.body.contains(document.querySelector('.recipe-title'));
     if (isDetailPage) {
@@ -23,23 +29,29 @@ document.addEventListener('click', (e) => {
     
     if (!recipeName) return;
 
-    toggleFavoriteStatus(recipeName);
-    updateAllFavoriteIcons();
+    toggleFavoriteStatus(recipeName); // Ubah status di localStorage
+    updateAllFavoriteIcons(); // Perbarui tampilan semua ikon
     
+    // Animasi tombol
     favoriteButton.classList.add('favorite-pulse');
     setTimeout(() => favoriteButton.classList.remove('favorite-pulse'), 500);
 
+    // LOGIKA SPESIFIK JIKA DI HALAMAN FAVORIT
     if (window.location.pathname.includes('favorit.html')) {
         const favorites = getFavorites();
+        // Jika resep baru saja dihapus dari favorit
         if (!favorites.includes(recipeName)) {
             const cardToRemove = favoriteButton.closest('.recipe-card');
             if (cardToRemove) {
-                cardToRemove.remove();
-                checkEmptyState();
+                cardToRemove.remove(); // Hapus kartu dari tampilan
+                checkEmptyState(); // Periksa kembali apakah kontainer jadi kosong
             }
         }
     }
 });
+
+
+// --- FUNGSI-FUNGSI BANTUAN ---
 
 function getFavorites() {
     return JSON.parse(localStorage.getItem('favorites')) || [];
@@ -62,6 +74,7 @@ function toggleFavoriteStatus(recipeName) {
 }
 
 function updateAllFavoriteIcons() {
+    // ... (Fungsi ini tetap sama, tidak perlu diubah, biarkan saja)
     const favorites = getFavorites();
     
     const detailButton = document.getElementById('favorite-btn');
@@ -70,10 +83,10 @@ function updateAllFavoriteIcons() {
         const icon = detailButton.querySelector('i');
         if (favorites.includes(recipeName)) {
             icon.classList.remove('far');
-            icon.classList.add('fas', 'text-white'); // Class di detail page beda
+            icon.classList.add('fas');
         } else {
             icon.classList.remove('fas');
-            icon.classList.add('far', 'text-white');
+            icon.classList.add('far');
         }
     }
 
@@ -93,6 +106,7 @@ function updateAllFavoriteIcons() {
     });
 }
 
+// FUNGSI UNTUK MERENDER KONTEN DI favorit.html
 function renderFavoritePage() {
     const container = document.getElementById('favorite-container');
     if (!container || typeof allRecipes === 'undefined') return;
@@ -124,17 +138,5 @@ function renderFavoritePage() {
         container.appendChild(card);
     });
 
-    checkEmptyState();
-}
-
-function checkEmptyState() {
-    const container = document.getElementById('favorite-container');
-    const emptyState = document.getElementById('empty-state');
-    if (container && emptyState) {
-        if (container.children.length === 0) {
-            emptyState.classList.remove('hidden');
-        } else {
-            emptyState.classList.add('hidden');
-        }
-    }
+    checkEmptyState(); // Panggil pengecekan setelah selesai render
 }
