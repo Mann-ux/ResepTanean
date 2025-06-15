@@ -10,15 +10,22 @@ const urlsToCache = [
   '/manifest.json',
 
   // == Halaman Detail ==
-  // PASTIKAN SEMUA HALAMAN DETAIL BARU ANDA SUDAH TERCANTUM DI SINI
-  '/detail/ayam-hitam.html',
-  '/detail/burjo-madura.html',
-  '/detail/sate-madura.html',
-  '/detail/sate-sapi.html',
-  '/detail/soto-madura.html',
-  '/detail/wedang-pokak.html',
-  // '/detail/bebek-sinjay.html', // <-- Contoh, tambahkan semua di sini
-  // '/detail/kaldu-kokot.html', // ...dan seterusnya untuk 20 resep
+// PASTIKAN SEMUA HALAMAN DETAIL BARU ANDA SUDAH TERCANTUM DI SINI
+'/detail/ayam-hitam.html',
+'/detail/bebek-sinjay.html',
+'/detail/burjo-madura.html',
+'/detail/es-kacang-merah.html',
+'/detail/kaldu-kokot.html',
+'/detail/kue-apen.html',
+'/detail/lorjuk.html',
+'/detail/nasi-serpang.html',
+'/detail/rujak-cingur.html',
+'/detail/sambal-pencit.html',
+'/detail/sate-madura.html',
+'/detail/sate-sapi.html',
+'/detail/soto-madura.html',
+'/detail/topak-ladeh.html',
+'/detail/wedang-pokak.html',
 
   // == CSS & JS ==
   '/src/output.css',

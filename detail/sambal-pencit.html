@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sambal Pencit Madura | ResepTanean</title>
+    <link rel="stylesheet" href="../src/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-background font-sans max-w-md mx-auto">
+    <header class="detail-header">
+      <a href="../index.html" class="header-icon">
+        <i class="fa-solid fa-x text-white"></i>
+      </a>
+      <button id="favorite-btn" class="header-icon">
+        <i class="far fa-bookmark text-white"></i>
+      </button>
+    </header>
+
+    <div
+      class="recipe-image"
+      style="background-image: url('../images/sambal-pencit.jpeg')"
+    ></div>
+
+    <div class="p-4">
+      <div class="flex justify-between items-center mb-2">
+        <h1 class="recipe-title">Sambal Pencit Madura</h1>
+        <div class="flex items-center gap-2">
+          <div class="text-gray-600 text-sm">
+            <i class="fas fa-clock mr-1"></i> -
+          </div>
+          <span class="difficulty-badge-easy">Mudah</span>
+        </div>
+      </div>
+      <p class="text-gray-700 text-sm">
+        Sambal Pencit adalah sambal khas Madura yang memadukan rasa pedas dari cabai dengan kesegaran mangga muda (pencit), menciptakan rasa pedas, asam, dan segar.
+      </p>
+    </div>
+
+    <main class="p-4 pb-20">
+      <div class="flex justify-center mb-6">
+        <div class="tab-container" id="tabContainer">
+          <div class="tab-slider"></div>
+          <button class="tab-button active" data-tab="bahan">Bahan</button>
+          <button class="tab-button" data-tab="langkah">Langkah-langkah</button>
+        </div>
+      </div>
+
+      <div id="bahan-content" class="tab-content-section active">
+        <h1 class="font-bold text-xl">Bahan-bahan:</h1>
+        <p class="text-sm text-gray-500 mb-2">Untuk 2 porsi</p>
+        <ul class="list-disc pl-6 mt-2 text-base space-y-1">
+            <li>1 buah mangga setengah matang</li>
+            <li>1 genggam cabe rawit</li>
+            <li>1 sdt terasi matang</li>
+            <li>1 sdt gula aren (atau gula merah)</li>
+            <li>1/2 sdt garam</li>
+            <li>1/4 sdt penyedap (opsional)</li>
+        </ul>
+      </div>
+
+      <div id="langkah-content" class="tab-content-section">
+        <h1 class="font-bold text-xl">Cara Membuat:</h1>
+        <ol class="list-decimal pl-6 mt-2 text-base space-y-3">
+          <li>
+            Siapkan cobek. Masukkan cabe rawit, terasi matang, garam, dan penyedap (jika pakai). Ulek semua bahan hingga tercampur rata.
+          </li>
+          <li>
+            Tambahkan gula aren, lalu ulek kembali hingga semua bumbu benar-benar halus dan merata.
+          </li>
+          <li>
+            Kupas dan cacah atau serut kasar mangga muda. Masukkan cacahan mangga ke dalam cobek.
+          </li>
+          <li>
+            Aduk dan tekan-tekan ringan cacahan mangga dengan bumbu hingga tercampur rata. Koreksi rasa.
+          </li>
+          <li>
+            Sambal Pencit khas Madura siap disajikan bersama nasi hangat dan lauk pauk.
+          </li>
+        </ol>
+      </div>
+    </main>
+
+    <script src="../js/tab.js"></script>
+    <script src="../js/favorites.js"></script>
+  </body>
+</html>

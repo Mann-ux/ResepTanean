@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kaldu Kokot Khas Madura | ResepTanean</title>
+    <link rel="stylesheet" href="../src/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-background font-sans max-w-md mx-auto">
+    <header class="detail-header">
+      <a href="../index.html" class="header-icon">
+        <i class="fa-solid fa-x text-white"></i>
+      </a>
+      <button id="favorite-btn" class="header-icon">
+        <i class="far fa-bookmark text-white"></i>
+      </button>
+    </header>
+
+    <div
+      class="recipe-image"
+      style="background-image: url('../images/kaldu-kokot.jpg')"
+    ></div>
+
+    <div class="p-4">
+      <div class="flex justify-between items-center mb-2">
+        <h1 class="recipe-title">Kaldu Kokot Khas Madura</h1>
+        <div class="flex items-center gap-2">
+          <div class="text-gray-600 text-sm">
+            <i class="fas fa-clock mr-1"></i> 1 Jam
+          </div>
+          <span class="difficulty-badge-medium">Sedang</span>
+        </div>
+      </div>
+      <p class="text-gray-700 text-sm">
+        Kaldu Kokot adalah hidangan khas Madura berupa sup kaya rempah yang dibuat dari kikil atau kaki sapi, disajikan dengan gurihnya kacang hijau.
+      </p>
+    </div>
+
+    <main class="p-4 pb-20">
+      <div class="flex justify-center mb-6">
+        <div class="tab-container" id="tabContainer">
+          <div class="tab-slider"></div>
+          <button class="tab-button active" data-tab="bahan">Bahan</button>
+          <button class="tab-button" data-tab="langkah">Langkah-langkah</button>
+        </div>
+      </div>
+
+      <div id="bahan-content" class="tab-content-section active">
+        <h1 class="font-bold text-xl">Bahan-bahan:</h1>
+        <p class="text-sm text-gray-500 mb-2">Untuk 10 porsi</p>
+        <ul class="list-disc pl-6 mt-2 text-base space-y-1">
+          <li>2 buah kaki sapi (kokot)</li>
+          <li>2 liter air putih</li>
+          <li>250 gr kacang hijau, rendam</li>
+          <li>2 ikat daun bawang, iris</li>
+          <li>2 batang bawang preh (daun bawang besar), iris</li>
+          <li>50 ml minyak goreng</li>
+          <li>Garam dan kaldu sapi bubuk, secukupnya</li>
+        </ul>
+        
+        <h1 class="font-bold text-lg pl-1 pt-4">- Bumbu Rebusan Pertama:</h1>
+        <ul class="list-disc pl-6 mt-2 text-base space-y-1">
+          <li>1 buah serai, geprek</li>
+          <li>6 lembar daun jeruk</li>
+          <li>2 lembar daun salam</li>
+        </ul>
+
+        <h1 class="font-bold text-lg pl-1 pt-4">- Bumbu Tumis (Haluskan):</h1>
+        <ul class="list-disc pl-6 mt-2 text-base space-y-1">
+          <li>13 siung bawang putih</li>
+          <li>7 buah bawang merah</li>
+          <li>2 buah kemiri utuh</li>
+          <li>1 ruas jahe</li>
+          <li>1/2 sdm merica butiran</li>
+          <li>Sedikit biji pala</li>
+          <li>2 biji cengkeh</li>
+        </ul>
+
+        <h1 class="font-bold text-lg pl-1 pt-4">- Bahan Pelengkap:</h1>
+        <ul class="list-disc pl-6 mt-2 text-base space-y-1">
+            <li>Duo bawang goreng (bawang merah & putih)</li>
+            <li>Sambal</li>
+            <li>Lontong</li>
+            <li>Jeruk nipis</li>
+        </ul>
+      </div>
+
+      <div id="langkah-content" class="tab-content-section">
+        <h1 class="font-bold text-xl">Cara Membuat:</h1>
+        <ol class="list-decimal pl-6 mt-2 text-base space-y-3">
+          <li>
+            <strong>Menghilangkan Bau Kikil:</strong> Didihkan air, masukkan kikil/kokot bersama serai, daun jeruk, dan daun salam. Rebus selama 30 menit. Setelah itu, angkat, tiriskan kikil, dan buang air rebusan pertama.
+          </li>
+          <li>
+            <strong>Membuat Kaldu:</strong> Siapkan panci baru dengan 2 liter air, didihkan, lalu masukkan kikil yang sudah ditiriskan. Sambil menunggu, goreng irisan daun bawang dan bawang preh hingga matang, sisihkan (minyak bekas menggoreng jangan dibuang).
+          </li>
+          <li>
+            <strong>Menumis Bumbu:</strong> Haluskan semua bahan "Bumbu Tumis". Panaskan minyak sisa menggoreng bawang, lalu tumis bumbu halus bersama cengkeh hingga harum dan matang (tanak). Masukkan bumbu yang sudah ditumis ke dalam rebusan kikil.
+          </li>
+          <li>
+            <strong>Memasak Isian:</strong> Masukkan kacang hijau yang sudah direndam ke dalam kuah kaldu, aduk rata. Tutup panci dan masak hingga kacang hijau merekah dan kikil menjadi empuk serta kuah mengental.
+          </li>
+           <li>
+            <strong>Penyajian:</strong> Tambahkan gorengan bawang preh dan daun bawang ke dalam kuah. Bumbui dengan garam dan kaldu sapi bubuk, aduk dan koreksi rasa. Untuk penyajian, potong lontong di piring, siram dengan kaldu kokot panas, taburi bawang goreng, dan beri perasan jeruk nipis serta sambal sesuai selera.
+          </li>
+        </ol>
+      </div>
+    </main>
+
+    <script src="../js/tab.js"></script>
+    <script src="../js/favorites.js"></script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bebek Sinjai | ResepTanean</title>
+    <link rel="stylesheet" href="../src/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-background font-sans max-w-md mx-auto">
+    <header class="detail-header">
+      <a href="../index.html" class="header-icon">
+        <i class="fa-solid fa-x text-white"></i>
+      </a>
+      <button id="favorite-btn" class="header-icon">
+        <i class="far fa-bookmark text-white"></i>
+      </button>
+    </header>
+
+    <div
+      class="recipe-image"
+      style="background-image: url('../images/bebek-sinjay.jpg')"
+    ></div>
+
+    <div class="p-4">
+      <div class="flex justify-between items-center mb-2">
+        <h1 class="recipe-title">Bebek Sinjai</h1>
+        <div class="flex items-center gap-2">
+          <div class="text-gray-600 text-sm">
+            <i class="fas fa-clock mr-1"></i> 1 Jam
+          </div>
+          <span class="difficulty-badge">Sulit</span>
+        </div>
+      </div>
+      <p class="text-gray-700 text-sm">
+        Bebek Sinjai adalah hidangan bebek khas yang kaya akan rempah, disajikan dengan kremesan gurih dan sambal pencit (mangga muda) yang segar.
+      </p>
+    </div>
+
+    <main class="p-4 pb-20">
+      <div class="flex justify-center mb-6">
+        <div class="tab-container" id="tabContainer">
+          <div class="tab-slider"></div>
+          <button class="tab-button active" data-tab="bahan">Bahan</button>
+          <button class="tab-button" data-tab="langkah">Langkah-langkah</button>
+        </div>
+      </div>
+
+      <div id="bahan-content" class="tab-content-section active">
+        <h1 class="font-bold text-xl">Bahan-bahan:</h1>
+        <ul class="list-disc pl-8 mt-2 text-base">
+            <li>1 kg ekor bebek</li>
+            <li>5 lembar daun jeruk</li>
+            <li>500 ml air</li>
+            <li>1 sachet bumbu instan marinasi (opsional)</li>
+        </ul>
+        <h1 class="font-bold text-lg pl-1 pt-2">- Bumbu Halus:</h1>
+        <ul class="list-disc pl-8 mt-2 text-base">
+            <li>8 siung bawang merah</li>
+            <li>10 siung bawang putih</li>
+            <li>1 ruas kunir</li>
+            <li>1 sdt ketumbar</li>
+            <li>Secukupnya garam</li>
+            <li>Secukupnya kaldu jamur</li>
+        </ul>
+        <h1 class="font-bold text-lg pl-1 pt-2">- Bumbu Kremesan:</h1>
+        <ul class="list-disc pl-8 mt-2 text-base">
+            <li>100 gr kemiri</li>
+            <li>5 batang sere</li>
+            <li>5 siung bawang putih</li>
+            <li>1 ruas lengkuas</li>
+            <li>1 ruas jahe</li>
+            <li>1/2 sdt ketumbar (bisa dilewati)</li>
+        </ul>
+         <h1 class="font-bold text-lg pl-1 pt-2">- Sambel Pencit:</h1>
+        <ul class="list-disc pl-8 mt-2 text-base">
+            <li>2 siung bawang putih</li>
+            <li>100 gr cabe rawit</li>
+            <li>1 buah mangga mudah</li>
+            <li>Secukupnya garam</li>
+            <li>Secukupnya gula pasir</li>
+            <li>Secukupnya kaldu jamur</li>
+        </ul>
+         <h1 class="font-bold text-lg pl-1 pt-2">- Pelengkap:</h1>
+        <ul class="list-disc pl-8 mt-2 text-base">
+            <li>Secukupnya nasii putih</li>
+            <li>Secukupnya daun kemangi</li>
+            <li>Secukupnya mentimun</li>
+        </ul>
+      </div>
+      <div id="langkah-content" class="tab-content-section">
+        <h1 class="font-bold text-xl">Langkah-langkah:</h1>
+        <ol class="list-decimal pl-6 mt-2 text-base space-y-2">
+            <li>Siapkan bumbu halus, blender lalu tumis hingga harum. Masukkan bebek yang sudah dicuci bersih, tambahkan daun jeruk, aduk rata. Bisa ditambahkan 1 sachet bumbu instan marinasi. Koreksi rasa dan masak sampai bebek benar-benar empuk.</li>
+            <li>Siapkan bahan kremesan, cincang kasar, kemudian masukkan ke dalam masakan bebek. Aduk dan tunggu sampai matang.</li>
+            <li>Goreng bebek sampai kecoklatan. Setelah matang, angkat dan sisihkan.</li>
+            <li>Untuk membuat sambel pencit: Ulek kasar cabe rawit dan bawang putih. Tambahkan garam, gula pasir, dan kaldu jamur. Masukkan serutan mangga muda, aduk hingga semua bahan tercampur rata. Koreksi rasa.</li>
+            <li>Sajikan bebek goreng bersama nasi putih hangat, sambel pencit, dan pelengkap lalapan seperti daun kemangi dan mentimun.</li>
+        </ol>
+      </div>
+    </main>
+
+    <script src="../js/tab.js"></script>
+    <script src="../js/favorites.js"></script>
+  </body>
+</html>

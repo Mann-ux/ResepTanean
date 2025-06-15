@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rujak Cingur Khas Madura | ResepTanean</title>
+    <link rel="stylesheet" href="../src/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-background font-sans max-w-md mx-auto">
+    <header class="detail-header">
+      <a href="../index.html" class="header-icon">
+        <i class="fa-solid fa-x text-white"></i>
+      </a>
+      <button id="favorite-btn" class="header-icon">
+        <i class="far fa-bookmark text-white"></i>
+      </button>
+    </header>
+
+    <div
+      class="recipe-image"
+      style="background-image: url('../images/rujak-cingur.jpg')"
+    ></div>
+
+    <div class="p-4">
+      <div class="flex justify-between items-center mb-2">
+        <h1 class="recipe-title">Rujak Cingur Khas Madura</h1>
+        <div class="flex items-center gap-2">
+          <div class="text-gray-600 text-sm">
+            <i class="fas fa-clock mr-1"></i> -
+          </div>
+          <span class="difficulty-badge-medium">Sedang</span>
+        </div>
+      </div>
+      <p class="text-gray-700 text-sm">
+        Rujak Cingur adalah salad tradisional khas Jawa Timur yang memadukan aneka sayuran, buah, dan cingur sapi dengan bumbu petis yang kental dan khas.
+      </p>
+    </div>
+
+    <main class="p-4 pb-20">
+      <div class="flex justify-center mb-6">
+        <div class="tab-container" id="tabContainer">
+          <div class="tab-slider"></div>
+          <button class="tab-button active" data-tab="bahan">Bahan</button>
+          <button class="tab-button" data-tab="langkah">Langkah-langkah</button>
+        </div>
+      </div>
+
+      <div id="bahan-content" class="tab-content-section active">
+        <h1 class="font-bold text-xl">Bahan-bahan:</h1>
+        <p class="text-sm text-gray-500 mb-2">Untuk 6 porsi</p>
+        <ul class="list-disc pl-6 mt-2 text-base space-y-1">
+          <li>1/2 kg cingur sapi</li>
+          <li>4 buah lontong, potong-potong</li>
+          <li>400 gr tahu putih, goreng</li>
+          <li>250 gr tempe, goreng</li>
+        </ul>
+        
+        <h1 class="font-bold text-lg pl-1 pt-4">- Bumbu Rebusan Cingur:</h1>
+        <ul class="list-disc pl-6 mt-2 text-base space-y-1">
+          <li>5 siung bawang putih, haluskan</li>
+          <li>1 sdm ketumbar bubuk</li>
+          <li>Garam secukupnya</li>
+          <li>Air untuk merebus</li>
+        </ul>
+
+        <h1 class="font-bold text-lg pl-1 pt-4">- Sayuran & Buah:</h1>
+        <ul class="list-disc pl-6 mt-2 text-base space-y-1">
+          <li>2 ikat bayam, petiki dan rebus</li>
+          <li>180 gr tauge, rebus sebentar</li>
+          <li>Timun, potong-potong</li>
+          <li>Nanas, potong-potong</li>
+        </ul>
+
+        <h1 class="font-bold text-lg pl-1 pt-4">- Bumbu Petis (per porsi):</h1>
+        <ul class="list-disc pl-6 mt-2 text-base space-y-1">
+          <li>4 sdm kacang tanah goreng</li>
+          <li>1 sdm petis udang biasa</li>
+          <li>1/2 sdt petis udang super</li>
+          <li>1 buah pisang klutuk muda, serut</li>
+          <li>2 siung bawang putih goreng</li>
+          <li>Cabe rawit, sesuai selera</li>
+          <li>Terasi bakar, secukupnya</li>
+          <li>Gula merah dan garam, secukupnya</li>
+          <li>Air asam jawa dan air matang, secukupnya</li>
+        </ul>
+      </div>
+
+      <div id="langkah-content" class="tab-content-section">
+        <h1 class="font-bold text-xl">Cara Membuat:</h1>
+        <ol class="list-decimal pl-6 mt-2 text-base space-y-3">
+          <li>
+            <strong>Merebus Cingur:</strong> Cuci bersih cingur, masukkan ke dalam panci presto. Tambahkan bawang putih halus, ketumbar bubuk, dan garam. Rebus selama ± 25 menit setelah presto berdesis. Angkat, tiriskan, lalu goreng sebentar dan potong-potong.
+          </li>
+          <li>
+            <strong>Menyiapkan Isian:</strong> Siapkan semua bahan isian: lontong, tahu goreng, tempe goreng, cingur yang sudah dipotong, serta sayuran dan buah-buahan.
+          </li>
+          <li>
+            <strong>Membuat Bumbu Ulek:</strong> Siapkan ulekan. Masukkan semua bahan "Bumbu Petis". Ulek hingga halus sambil ditambahkan sedikit air matang hingga mencapai kekentalan yang diinginkan. Koreksi rasa.
+          </li>
+          <li>
+            <strong>Penyajian:</strong> Tata potongan lontong, tahu, tempe, sayuran, dan buah di atas piring. Siram dengan bumbu petis yang baru diulek.
+          </li>
+          <li>
+            Rujak Cingur siap disajikan.
+          </li>
+        </ol>
+      </div>
+    </main>
+
+    <script src="../js/tab.js"></script>
+    <script src="../js/favorites.js"></script>
+  </body>
+</html>

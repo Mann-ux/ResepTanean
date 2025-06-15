@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Topak Ladeh | ResepTanean</title>
+    <link rel="stylesheet" href="../src/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-background font-sans max-w-md mx-auto">
+    <header class="detail-header">
+      <a href="../index.html" class="header-icon">
+        <i class="fa-solid fa-x text-white"></i>
+      </a>
+      <button id="favorite-btn" class="header-icon">
+        <i class="far fa-bookmark text-white"></i>
+      </button>
+    </header>
+
+    <div
+      class="recipe-image"
+      style="background-image: url('../images/topak-ladeh.jpeg')"
+    ></div>
+
+    <div class="p-4">
+      <div class="flex justify-between items-center mb-2">
+        <h1 class="recipe-title">Topak Ladeh</h1>
+        <div class="flex items-center gap-2">
+          <div class="text-gray-600 text-sm">
+            <i class="fas fa-clock mr-1"></i> -
+          </div>
+          <span class="difficulty-badge-medium">Sedang</span>
+        </div>
+      </div>
+      <p class="text-gray-700 text-sm">
+        Topak Ladeh adalah hidangan khas Madura sejenis gulai daging sapi yang kaya rempah dengan kuah santan kemerahan yang gurih dan sedikit pedas.
+      </p>
+    </div>
+
+    <main class="p-4 pb-20">
+      <div class="flex justify-center mb-6">
+        <div class="tab-container" id="tabContainer">
+          <div class="tab-slider"></div>
+          <button class="tab-button active" data-tab="bahan">Bahan</button>
+          <button class="tab-button" data-tab="langkah">Langkah-langkah</button>
+        </div>
+      </div>
+
+      <div id="bahan-content" class="tab-content-section active">
+        <h1 class="font-bold text-xl">Bahan-bahan:</h1>
+        
+        <h1 class="font-bold text-lg pl-1 pt-4">- Bahan Utama:</h1>
+        <ul class="list-disc pl-6 mt-2 text-base space-y-1">
+          <li>500 gram daging sapi (bisa campur jeroan/tetelan)</li>
+          <li>500 ml santan kental</li>
+          <li>1.000 ml air (untuk merebus daging)</li>
+          <li>3 lembar daun salam</li>
+          <li>2 batang serai, geprek</li>
+          <li>5 lembar daun jeruk</li>
+          <li>Garam, gula, dan kaldu bubuk secukupnya</li>
+        </ul>
+
+        <h1 class="font-bold text-lg pl-1 pt-4">- Bumbu Halus:</h1>
+        <ul class="list-disc pl-6 mt-2 text-base space-y-1">
+          <li>8 butir bawang merah</li>
+          <li>5 siung bawang putih</li>
+          <li>5 buah cabai merah besar</li>
+          <li>3 buah cabai rawit merah (opsional)</li>
+          <li>3 butir kemiri</li>
+          <li>1 sdt ketumbar bubuk</li>
+          <li>1 ruas kunyit</li>
+          <li>1 ruas jahe</li>
+          <li>1/2 sdt jintan (opsional)</li>
+        </ul>
+
+        <h1 class="font-bold text-lg pl-1 pt-4">- Pelengkap (opsional):</h1>
+        <ul class="list-disc pl-6 mt-2 text-base space-y-1">
+            <li>Telur rebus</li>
+            <li>Ketupat atau lontong</li>
+            <li>Tahu dan tempe goreng</li>
+            <li>Kerupuk</li>
+        </ul>
+      </div>
+
+      <div id="langkah-content" class="tab-content-section">
+        <h1 class="font-bold text-xl">Cara Membuat:</h1>
+        <ol class="list-decimal pl-6 mt-2 text-base space-y-3">
+          <li>
+            Rebus daging sapi hingga empuk. Setelah empuk, angkat daging dan potong-potong sesuai selera. Jangan buang air sisa rebusan, sisihkan untuk kuah.
+          </li>
+          <li>
+            Tumis bumbu halus bersama daun salam, daun jeruk, dan serai yang sudah digeprek hingga benar-benar harum dan matang.
+          </li>
+          <li>
+            Masukkan potongan daging ke dalam tumisan bumbu, aduk hingga daging terbalut rata dengan bumbu.
+          </li>
+          <li>
+            Tuang sisa air rebusan daging dan santan kental. Masak dengan api sedang sambil sesekali diaduk agar santan tidak pecah.
+          </li>
+          <li>
+            Bumbui dengan garam, gula, dan kaldu bubuk sesuai selera. Lanjutkan memasak hingga kuah sedikit menyusut dan bumbu meresap sempurna ke dalam daging.
+          </li>
+           <li>
+            Sajikan Topak Ladeh selagi hangat bersama ketupat atau lontong dan bahan pelengkap lainnya.
+          </li>
+        </ol>
+      </div>
+    </main>
+
+    <script src="../js/tab.js"></script>
+    <script src="../js/favorites.js"></script>
+  </body>
+</html>
