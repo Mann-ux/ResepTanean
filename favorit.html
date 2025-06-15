@@ -26,79 +26,122 @@
 
     <nav class="navbar">
         <a href="index.html" class="nav-btn">
-            <i class="fas fa-home text-xl"></i>
+            <i class="fas fa-home text-2xl"></i>
         </a>
         <a href="favorit.html" class="nav-btn active">
-            <i class="fas fa-bookmark text-xl"></i>
+            <i class="fas fa-bookmark text-2xl"></i>
         </a>
     </nav>
 
     <script>
-        // DATA RESEP DITARUH LANGSUNG DI SINI
-        const allRecipes = [
-            { id: 1, name: "Ayam Bumbu Hitam", category: "Makanan", difficulty: "Sedang", badgeClass: "difficulty-badge-medium", image: "images/ayam-hitam.jpg", detailPage: "detail/ayam-hitam.html" },
-            { id: 2, name: "Wedang Pokak", category: "Minuman", difficulty: "Mudah", badgeClass: "difficulty-badge-easy", image: "images/wedang-pokak.jpg", detailPage: "detail/wedang-pokak.html" },
-            { id: 3, name: "Burjo Madura", category: "Lainnya", difficulty: "Sedang", badgeClass: "difficulty-badge-medium", image: "images/burjo-madura.jpg", detailPage: "detail/burjo-madura.html" },
-            { id: 4, name: "Bebek Sinjay", category: "Makanan", difficulty: "Sulit", badgeClass: "difficulty-badge", image: "images/bebek-sinjay.jpg", detailPage: "detail/bebek-sinjay.html" },
-            { id: 5, name: "Sate Madura", category: "Makanan", difficulty: "Sulit", badgeClass: "difficulty-badge", image: "images/sate-madura.jpg", detailPage: "detail/sate-sapi.html" },
-            { id: 6, name: "Soto Madura", category: "Makanan", difficulty: "Sedang", badgeClass: "difficulty-badge-medium", image: "images/soto-madura.jpg", detailPage: "detail/soto-madura.html" },
-            { id: 7, name: "Kaldu Kokot", category: "Makanan", difficulty: "Sedang", badgeClass: "difficulty-badge-medium", image: "images/kaldu-kokot.jpg", detailPage: "#" },
-            { id: 8, name: "Nasi Serpang", category: "Makanan", difficulty: "Sedang", badgeClass: "difficulty-badge-medium", image: "images/nasi-serpang.jpg", detailPage: "#" },
-            { id: 9, name: "Topak Ladeh", category: "Makanan", difficulty: "Sedang", badgeClass: "difficulty-badge-medium", image: "images/topak-ladeh.jpg", detailPage: "#" },
-            { id: 10, name: "Rujak Cingur Khas Madura", category: "Makanan", difficulty: "Sedang", badgeClass: "difficulty-badge-medium", image: "images/rujak-cingur.jpg", detailPage: "#" },
-            { id: 11, name: "Sambal Pencit Madura", category: "Lainnya", difficulty: "Mudah", badgeClass: "difficulty-badge-easy", image: "images/sambal-pencit.jpg", detailPage: "#" },
-            { id: 12, name: "Kue Apen", category: "Lainnya", difficulty: "Mudah", badgeClass: "difficulty-badge-easy", image: "images/kue-apen.jpg", detailPage: "#" },
-            { id: 13, name: "Es Kacang Merah Madura", category: "Minuman", difficulty: "Mudah", badgeClass: "difficulty-badge-easy", image: "images/es-kacang-merah.jpg", detailPage: "#" },
-            { id: 14, name: "Lorjuk", category: "Lainnya", difficulty: "Sulit", badgeClass: "difficulty-badge", image: "images/lorjuk.jpg", detailPage: "#" },
-            { id: 15, name: "Nasi Jagung", category: "Makanan", difficulty: "Mudah", badgeClass: "difficulty-badge-easy", image: "images/nasi-jagung.jpg", detailPage: "#" },
-            { id: 16, name: "Sate Lalat", category: "Makanan", difficulty: "Sedang", badgeClass: "difficulty-badge-medium", image: "images/sate-lalat.jpg", detailPage: "#" },
-            { id: 17, name: "Tajin Sobih", category: "Lainnya", difficulty: "Sedang", badgeClass: "difficulty-badge-medium", image: "images/tajin-sobih.jpg", detailPage: "#" },
-            { id: 18, name: "Kopi Jahe Khas Madura", category: "Minuman", difficulty: "Mudah", badgeClass: "difficulty-badge-easy", image: "images/kopi-jahe.jpg", detailPage: "#" },
-            { id: 19, name: "Bebek Songkem", category: "Makanan", difficulty: "Sulit", badgeClass: "difficulty-badge", image: "images/bebek-songkem.jpg", detailPage: "#" },
-            { id: 20, name: "Campor Lorjuk", category: "Makanan", difficulty: "Sedang", badgeClass: "difficulty-badge-medium", image: "images/campor-lorjuk.jpg", detailPage: "#" }
-        ];
+    // --- DATA RESEP (DARI DATA.JS) ---
+    const allRecipes = [
+        { id: 1, name: "Ayam Bumbu Hitam", category: "Makanan", difficulty: "Sedang", badgeClass: "difficulty-badge-medium", image: "images/ayam-hitam.jpg", detailPage: "detail/ayam-hitam.html" },
+        { id: 2, name: "Wedang Pokak", category: "Minuman", difficulty: "Mudah", badgeClass: "difficulty-badge-easy", image: "images/wedang-pokak.jpg", detailPage: "detail/wedang-pokak.html" },
+        { id: 3, name: "Burjo Madura", category: "Lainnya", difficulty: "Sedang", badgeClass: "difficulty-badge-medium", image: "images/burjo-madura.jpg", detailPage: "detail/burjo-madura.html" },
+        { id: 4, name: "Bebek Sinjay", category: "Makanan", difficulty: "Sulit", badgeClass: "difficulty-badge", image: "images/bebek-sinjay.jpg", detailPage: "detail/bebek-sinjay.html" },
+        { id: 5, name: "Sate Madura", category: "Makanan", difficulty: "Sulit", badgeClass: "difficulty-badge", image: "images/sate-madura.jpg", detailPage: "detail/sate-sapi.html" },
+        { id: 6, name: "Soto Madura", category: "Makanan", difficulty: "Sedang", badgeClass: "difficulty-badge-medium", image: "images/soto-madura.jpg", detailPage: "detail/soto-madura.html" },
+        { id: 7, name: "Kaldu Kokot", category: "Makanan", difficulty: "Sedang", badgeClass: "difficulty-badge-medium", image: "images/kaldu-kokot.jpg", detailPage: "#" },
+        { id: 8, name: "Nasi Serpang", category: "Makanan", difficulty: "Sedang", badgeClass: "difficulty-badge-medium", image: "images/nasi-serpang.jpg", detailPage: "#" },
+        { id: 9, name: "Topak Ladeh", category: "Makanan", difficulty: "Sedang", badgeClass: "difficulty-badge-medium", image: "images/topak-ladeh.jpg", detailPage: "#" },
+        { id: 10, name: "Rujak Cingur Khas Madura", category: "Makanan", difficulty: "Sedang", badgeClass: "difficulty-badge-medium", image: "images/rujak-cingur.jpg", detailPage: "#" },
+        { id: 11, name: "Sambal Pencit Madura", category: "Lainnya", difficulty: "Mudah", badgeClass: "difficulty-badge-easy", image: "images/sambal-pencit.jpg", detailPage: "#" },
+        { id: 12, name: "Kue Apen", category: "Lainnya", difficulty: "Mudah", badgeClass: "difficulty-badge-easy", image: "images/kue-apen.jpg", detailPage: "#" },
+        { id: 13, name: "Es Kacang Merah Madura", category: "Minuman", difficulty: "Mudah", badgeClass: "difficulty-badge-easy", image: "images/es-kacang-merah.jpg", detailPage: "#" },
+        { id: 14, name: "Lorjuk", category: "Lainnya", difficulty: "Sulit", badgeClass: "difficulty-badge", image: "images/lorjuk.jpg", detailPage: "#" },
+        { id: 15, name: "Nasi Jagung", category: "Makanan", difficulty: "Mudah", badgeClass: "difficulty-badge-easy", image: "images/nasi-jagung.jpg", detailPage: "#" },
+        { id: 16, name: "Sate Lalat", category: "Makanan", difficulty: "Sedang", badgeClass: "difficulty-badge-medium", image: "images/sate-lalat.jpg", detailPage: "#" },
+        { id: 17, name: "Tajin Sobih", category: "Lainnya", difficulty: "Sedang", badgeClass: "difficulty-badge-medium", image: "images/tajin-sobih.jpg", detailPage: "#" },
+        { id: 18, name: "Kopi Jahe Khas Madura", category: "Minuman", difficulty: "Mudah", badgeClass: "difficulty-badge-easy", image: "images/kopi-jahe.jpg", detailPage: "#" },
+        { id: 19, name: "Bebek Songkem", category: "Makanan", difficulty: "Sulit", badgeClass: "difficulty-badge", image: "images/bebek-songkem.jpg", detailPage: "#" },
+        { id: 20, name: "Campor Lorjuk", category: "Makanan", difficulty: "Sedang", badgeClass: "difficulty-badge-medium", image: "images/campor-lorjuk.jpg", detailPage: "#" }
+    ];
 
-        // LOGIKA UNTUK MERENDER HALAMAN
-        function renderFavoritesOnThisPage() {
-            console.log("Memulai render halaman favorit...");
+    // --- SEMUA FUNGSI DARI FAVORITES.JS SEKARANG DI SINI ---
+    function getFavorites() { return JSON.parse(localStorage.getItem('favorites')) || []; }
+    function saveFavorites(favorites) { localStorage.setItem('favorites', JSON.stringify(favorites)); }
+    function toggleFavoriteStatus(recipeName) {
+        let favorites = getFavorites();
+        const index = favorites.indexOf(recipeName);
+        if (index === -1) { favorites.push(recipeName); } else { favorites.splice(index, 1); }
+        saveFavorites(favorites);
+    }
 
-            const container = document.getElementById('favorite-container');
-            if (!container) {
-                console.error("#favorite-container tidak ditemukan!");
-                return;
+    function checkEmptyState() {
+        const container = document.getElementById('favorite-container');
+        if (container && container.children.length === 0) {
+            // Jika tidak ada kartu resep, buat dan tampilkan pesan kosong
+            if (!document.getElementById('empty-state')) {
+                const main = document.querySelector('main');
+                const emptyStateDiv = document.createElement('div');
+                emptyStateDiv.id = 'empty-state';
+                emptyStateDiv.className = 'empty-state';
+                emptyStateDiv.innerHTML = `
+                    <i class="fas fa-bookmark text-gray-300 text-5xl mb-4"></i>
+                    <h3 class="text-gray-500 font-medium">Belum ada resep favorit</h3>
+                    <p class="text-gray-400 mt-2 text-sm">Tambahkan resep favoritmu dari halaman beranda</p>
+                `;
+                main.appendChild(emptyStateDiv);
             }
-
-            const rawFavorites = localStorage.getItem('favorites');
-            console.log("Data mentah dari localStorage:", rawFavorites);
-
-            const favorites = JSON.parse(rawFavorites) || [];
-            console.log("Data favorit setelah di-parse:", favorites);
-
-            const favoriteRecipes = allRecipes.filter(recipe => {
-                const isMatch = favorites.includes(recipe.name.trim());
-                // Log untuk setiap perbandingan
-                console.log(`Mencocokkan: [${recipe.name.trim()}] ada di [${favorites.join(", ")}] -> ${isMatch}`);
-                return isMatch;
-            });
-
-            console.log("Hasil filter (resep yang cocok):", favoriteRecipes);
-            console.log("Jumlah resep yang akan dirender:", favoriteRecipes.length);
-
-            container.innerHTML = ''; // Kosongkan kontainer
-
-            if (favoriteRecipes.length > 0) {
-                favoriteRecipes.forEach(recipe => {
-                    const card = document.createElement('a');
-                    card.href = recipe.detailPage;
-                    card.className = 'recipe-card bg-white rounded-xl shadow-md overflow-hidden block';
-                    card.innerHTML = `<div class="h-32 bg-cover bg-center" style="background-image: url('${recipe.image}')"></div><div class="p-3"><div class="flex justify-between items-start"><div><h4 class="font-medium text-sm mb-1">${recipe.name}</h4><span class="${recipe.badgeClass}">${recipe.difficulty}</span></div><button class="favorite-btn active" data-resep="${recipe.name}"><i class="fas fa-bookmark text-primary"></i></button></div></div>`;
-                    container.appendChild(card);
-                });
+        } else {
+            // Jika ada kartu resep, hapus pesan kosong jika ada
+            const emptyState = document.getElementById('empty-state');
+            if (emptyState) {
+                emptyState.remove();
             }
         }
+    }
 
-        // JALANKAN SAAT HALAMAN SELESAI DIMUAT
-        document.addEventListener('DOMContentLoaded', renderFavoritesOnThisPage);
-    </script>
+    function renderFavoritePage() {
+        const container = document.getElementById('favorite-container');
+        if (!container) return;
+        const favorites = getFavorites();
+        const favoriteRecipes = allRecipes.filter(recipe => favorites.includes(recipe.name.trim()));
+        container.innerHTML = '';
+        favoriteRecipes.forEach(recipe => {
+            const card = document.createElement('a');
+            card.href = recipe.detailPage;
+            card.className = 'recipe-card bg-white rounded-xl shadow-md overflow-hidden block';
+            card.innerHTML = `<div class="h-32 bg-cover bg-center" style="background-image: url('${recipe.image}')"></div><div class="p-3"><div class="flex justify-between items-start"><div><h4 class="font-medium text-sm mb-1">${recipe.name}</h4><span class="${recipe.badgeClass}">${recipe.difficulty}</span></div><button class="favorite-btn active" data-resep="${recipe.name}"><i class="fas fa-bookmark text-primary"></i></button></div></div>`;
+            container.appendChild(card);
+        });
+        checkEmptyState();
+    }
+
+    // --- EVENT LISTENER UTAMA ---
+    document.addEventListener('DOMContentLoaded', () => {
+        // Tampilkan halaman favorit saat pertama kali dimuat
+        renderFavoritePage();
+    });
+
+    // Event listener untuk klik pada tombol bookmark di halaman ini
+    document.addEventListener('click', (e) => {
+        const favoriteButton = e.target.closest('.favorite-btn');
+        if (!favoriteButton) return;
+        
+        e.preventDefault();
+        e.stopPropagation();
+
+        const recipeName = favoriteButton.dataset.resep;
+        if (!recipeName) return;
+
+        // Hapus dari favorit
+        toggleFavoriteStatus(recipeName);
+        
+        // Animasi tombol
+        favoriteButton.classList.add('favorite-pulse');
+
+        // Hapus kartu dari tampilan setelah animasi singkat
+        setTimeout(() => {
+            const cardToRemove = favoriteButton.closest('.recipe-card');
+            if (cardToRemove) {
+                cardToRemove.remove();
+                checkEmptyState(); // Periksa kembali apakah kontainer jadi kosong
+            }
+        }, 300);
+    });
+
+</script>
 </body>
 </html>

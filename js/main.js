@@ -31,7 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Tampilkan SEMUA 20 resep saat halaman pertama kali dibuka
     // Pastikan file js/data.js sudah dipanggil sebelum main.js di HTML
     if (typeof allRecipes !== 'undefined') {
-        renderRecipes(allRecipes);
+        // Ambil 6 resep pertama dari daftar sebagai "Rekomendasi"
+        const rekomendasiRecipes = allRecipes.slice(0, 6);
+        
+        // Render hanya 6 resep tersebut
+        renderRecipes(rekomendasiRecipes);
     }
 });
 
